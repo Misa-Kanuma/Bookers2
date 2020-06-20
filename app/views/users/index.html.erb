@@ -15,4 +15,14 @@
 	</tbody>
 </tr>
 <% end %>
-</<table>
+</table>
+
+<h1>New book</h1>
+<%= form_for(Book.new, url: '/books') do |book| %>
+	<%= book.label :Title%><br>
+	<%= book.text_field :title %><br>
+	<%= book.label :Opinion %><br>
+	<%= book.text_area :body %><br>
+
+	<%= book.submit "Create Book" %>
+	<% end %>
