@@ -2,6 +2,8 @@
 
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <%= @user.name %>
+<%= @user.profile_image %>
+<%= @user.introduction %>
 
 
 <h1>New book</h1>
