@@ -1,9 +1,22 @@
-<h1>User info</h1>
+<h1>Books</h1>
 
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<%= @user.name %>
-<%= @user.profile_image %>
-<%= @user.introduction %>
+<table>
+<thead>
+	<tr>
+		<th></th>
+		<th>Title</th>
+		<th>Opinion<th>
+	</tr>
+	</thead>
+	<tr>
+		<% @books.each do |books| %>
+	<tbody>
+		<td><%= attachment_image_tag users, :profile_image %>
+		<td><%= books.title %></td>
+		<td><%= books.opinion %></td>
+	</tbody>
+</tr>
+<% end %>
+</table>
 
-
-<h1>New book</h1>
+<%= render "side", user: @user %>

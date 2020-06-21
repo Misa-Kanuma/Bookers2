@@ -1,4 +1,4 @@
-<h1>Users</h1>
+<h1>Book detail</h1>
 
 <table>
 <thead>
@@ -11,7 +11,7 @@
 	<tr>
 		<% @users.each do |users| %>
 	<tbody>
-		<td><%= attachment_image_tag users, :profile_image %>
+		<td><%= users.profile_image %>
 		<td><%= users.name %></td>
 		<td><%= link_to "show", user_path(users.id) %></td>
 	</tbody>
@@ -19,4 +19,4 @@
 <% end %>
 </table>
 
-<%= render "side", user: @user %>
+<%= render "layouts/side", user: @user %>
