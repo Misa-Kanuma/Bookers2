@@ -9,14 +9,14 @@
 	</tr>
 	</thead>
 	<tr>
-		<% @books.each do |books| %>
+		<% @books.each do |book| %>
 	<tbody>
-		<td><%= attachment_image_tag users, :profile_image %>
-		<td><%= books.title %></td>
-		<td><%= books.opinion %></td>
+		<td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+		<td><%= book.title %></td>
+		<td><%= book.body %></td>
 	</tbody>
 </tr>
 <% end %>
 </table>
 
-<%= render "side", user: @user %>
+<%= render "side", user: @user, book: @newbook %>

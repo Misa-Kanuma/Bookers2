@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-	def new
-		@user = User.new
-	end
-
 	def create
 		@user = User.new(user_params)
 		@user.save
@@ -12,13 +8,15 @@ class UsersController < ApplicationController
 
    def index
    	@users = User.all
-   	@user = current_user
+   	@user = User.find_by(id: current_user.id)
+    @newbook = Book.new
    end
 
    def show
     @users = User.all
     @user = User.find(params[:id])
-    @books = Book.all
+    @books = @user.books
+    @newbook = Book.new
    end
 
    def edit

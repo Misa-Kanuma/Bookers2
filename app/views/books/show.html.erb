@@ -9,14 +9,14 @@
 	</tr>
 	</thead>
 	<tr>
-		<% @users.each do |users| %>
 	<tbody>
-		<td><%= users.profile_image %>
-		<td><%= users.name %></td>
-		<td><%= link_to "show", user_path(users.id) %></td>
+		<tr>
+			<td><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+			<td><%= @book.title %></td>
+			<td><%= @book.body %></td>
+		</tr>
 	</tbody>
 </tr>
-<% end %>
 </table>
 
-<%= render "layouts/side", user: @user %>
+<%= render "users/side", user: @user, book: @newbook %>

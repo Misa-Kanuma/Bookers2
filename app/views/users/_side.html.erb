@@ -1,11 +1,11 @@
 <h1>User info</h1>
 <%= user.name %>
-<%= attachment_image_tag user, :profile_image %>
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
 <%= user.introduction %>
 <%= "設定マーク" %>
 
 <h1>New book</h1>
-<%= form_for(Book.new, url: '/books') do |book| %>
+<%= form_for(book) do |book| %>
 	<%= book.label :Title%><br>
 	<%= book.text_field :title %><br>
 	<%= book.label :Opinion %><br>

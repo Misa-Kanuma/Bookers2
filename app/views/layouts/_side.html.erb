@@ -1,16 +1,0 @@
-<h1>User info</h1>
-<%= user.name %>
-<%= attachment_image_tag user, :profile_image %>
-<%= user.introduction %>
-<%= "設定マーク" %>
-
-
-<h1>New book</h1>
-<%= form_for(book) do |book| %>
-	<%= book.label :Title%><br>
-	<%= book.text_field :title %><br>
-	<%= book.label :Opinion %><br>
-	<%= book.text_area :body %><br>
-	<%= book.hidden_field :user_id, :value => current_user.id %> 
-	<%= book.submit "Create Book" %>
-<% end %>
