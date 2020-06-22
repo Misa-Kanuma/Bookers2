@@ -1,7 +1,14 @@
 <h2>Resend confirmation instructions</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<% if @users.errors.any? %>
+
+	<%= @users.errors.count %>件のエラーが発生しました
+ 	<% @users.errors.full_messages.each do |message| %>
+ 		<%= message %>
+ 		<% end %>
+ 	<% end %>
+ 		  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -13,4 +20,6 @@
   </div>
 <% end %>
 
+</ul>
+<% end %>
 <%= render "devise/shared/links" %>

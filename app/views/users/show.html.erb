@@ -1,22 +1,29 @@
-<h1>Books</h1>
+<div class="container">
+	<div class="row">
+			<div class="col-lg-4" style="background-color: orange" >
+			<%= render "side", user: @user, book: @newbook %>
+			</div>
+		<div class="col-lg-8">
+			<h1>Books</h1>
+				<table class="table table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Title</th>
+							<th>Opinion<th>
+						</tr>
+					</thead>
+						<tr>
+							<% @books.each do |book| %>
+					<tbody>
+								<td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+								<td><%= book.title %></td>
+								<td><%= book.body %></td>
+					</tbody>
+						</tr>
+							<% end %>
+				</table>
+		</div>
+	</div>
+</div>
 
-<table>
-<thead>
-	<tr>
-		<th></th>
-		<th>Title</th>
-		<th>Opinion<th>
-	</tr>
-	</thead>
-	<tr>
-		<% @books.each do |book| %>
-	<tbody>
-		<td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-		<td><%= book.title %></td>
-		<td><%= book.body %></td>
-	</tbody>
-</tr>
-<% end %>
-</table>
-
-<%= render "side", user: @user, book: @newbook %>
